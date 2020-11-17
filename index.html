@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html>
-<head>   <meta charset="UTF-8">   <title>Hsndlebars intro</title>
+<head>   <meta charset="UTF-8">   <title>Handlebar Moustache Presidents</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
 
 <!-- the template  -->
-<script id="text-template" type="text/x-handlebars-template">
-    Hello {{first_name}} {{last_name}}, welcome to the site.
+<script id="example-template" type="text/x-handlebars-template">
+   <h3>First 5 Presidents</h3>
+     <ol>
+         {{#each presidents}}
+              <li>{{firstName}} {{lastName}}</li>
+         {{/each}}
+    </ol>
 </script>
 
 </head>
 <body>
-   <p>First name: <input id="first_name"></p>
-   <p>Last name: <input id="last_name"></p>
-   <p><button type='button' id="btn">Welcome!</button></p>
-   <br><hr>
-
-   <div id="result"></div>
+   <h3>An ordered List of Presidents</h3>
+  
+   <div id="content"></div>
 
 <script>
-   function show_welcome() {
-       var fname = document.getElementById('first_name').value;
-       var lname = document.getElementById('last_name').value;
-
-       var context = {first_name: fname, last_name: lname};         // the data object that will be substituted
-
-       var source   = document.getElementById('text-template').innerHTML;  // get template text
-       var template = Handlebars.compile(source);                          // compile the template
-       var html = template(context);                              // substitute data into template
-
-       document.getElementById('result').innerHTML = html;        // display completed html in division
-  }
-
-  document.getElementById('btn').addEventListener('click', show_welcome);
+   var context = {
+       presidents: [
+           { firstName: 'George', lastName: 'Washington' },
+           { firstName: 'John', lastName: 'Adams'},
+           { firstName: 'Thomas', lastName: 'Jefferson'},
+           { firstName: 'James', lastName: 'Madison'},
+           { firstName: 'James', lastName: 'Monroe'}
+        ]
+   };
+    
+    var theTemplateScript = document.getElementByID('example-template').innerHTML;
+    var the Template = Handlebars.compile(theTemplateScript);
+    var theCompiledHtml = theTemplate(context);
+    document.getElementById('content').innerHTML = theCompiledHtml;
 
 </script>
 </body></html>
