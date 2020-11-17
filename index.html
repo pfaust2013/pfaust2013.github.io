@@ -23,9 +23,9 @@
 <script>
    var context = {"presidents":[{"firstName":"George","lastName":"Washington"},{"firstName":"John","lastName":"Adams"},{"firstName":"Thomas","lastName":"Jefferson"},{"firstName":"James","lastName":"Madison"},{"firstName":"James","lastName":"Monroe"}]};
     
-    var theTemplateScript = document.getElementByID('example-template').innerHTML;
+    var theTemplateScript = document.getElementById('example-template').innerHTML;
     var theTemplate = Handlebars.compile(theTemplateScript);
-    var theCompiledHtml = theTemplate(context);
+    var theCompiledHtml = theTemplate( context );
     document.getElementById('content').innerHTML = theCompiledHtml;
 
 </script>
