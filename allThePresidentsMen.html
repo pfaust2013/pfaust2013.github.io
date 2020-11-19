@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>   <meta charset="UTF-8">   <title>Moustache Presidents</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
+
+<!-- the ordered list template   --> 
 <script id="example-template" type="text/x-handlebars-template">
    <h3>First 5 Presidents</h3>
      <ol>
@@ -5,4 +12,22 @@
               <li>{{firstName}} {{lastName}}</li>
          {{/each}}
     </ol>
+</script>    
+   
+
+</head>
+<body>
+   <h3>The first 5 Presidents</h3>
+  
+   <div id='content'></div>
+
+<script>
+    var context = {presidents:[{firstName:'George',lastName:'Washington'},{firstName:'John',lastName:'Adams'},{firstName:'Thomas',lastName:'Jefferson'},{firstName:'James',lastName:'Madison'},{firstName:'James',lastName:'Monroe'}]};
+    // var people = [{"Name":"Albert", "State":"Iowa","Age":25},{"Name":"Betty", "State":"Ohio","Age":32},{"Name":"Clark", "State":"Ohio","Age":48}];
+    var theTemplateScript = document.getElementById('example-template').innerHTML;
+    var theTemplate = Handlebars.compile(theTemplateScript);
+    var theCompiledHtml = theTemplate( context );
+    document.getElementById('content').innerHTML = theCompiledHtml;
+
 </script>
+</body></html>
