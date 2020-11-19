@@ -35,7 +35,7 @@
     var people = [{"Name":"Albert", "State":"Iowa","Age":25},{"Name":"Betty", "State":"Ohio","Age":32},{"Name":"Clark", "State":"Ohio","Age":48}];
     var theTemplateScript = document.getElementById('tableTemplate').innerHTML;
     var theTemplate = Handlebars.compile(theTemplateScript);
-    var theCompiledHtml = theTemplate( people );
+    var theCompiledHtml = theTemplate({ rows: people });
     document.getElementById('content').innerHTML = theCompiledHtml;
 
 </script>
