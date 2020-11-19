@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>   <meta charset="UTF-8">   <title>Handlebar Moustache Presidents</title>
+<head>   <meta charset="UTF-8">   <title>Handlebar Table Array Example</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
 
@@ -26,14 +26,14 @@
 
 </head>
 <body>
-   <h3>A disordered List of Presidents</h3>
+   <h3>Table Array example using Handlebars</h3>
   
    <div id='content'></div>
 
 <script>
    // var context = {presidents:[{firstName:'George',lastName:'Washington'},{firstName:'John',lastName:'Adams'},{firstName:'Thomas',lastName:'Jefferson'},{firstName:'James',lastName:'Madison'},{firstName:'James',lastName:'Monroe'}]};
     var people = [{"Name":"Albert", "State":"Iowa","Age":25},{"Name":"Betty", "State":"Ohio","Age":32},{"Name":"Clark", "State":"Ohio","Age":48}];
-    var theTemplateScript = document.getElementById('example-template').innerHTML;
+    var theTemplateScript = document.getElementById('tableTemplate').innerHTML;
     var theTemplate = Handlebars.compile(theTemplateScript);
     var theCompiledHtml = theTemplate( context );
     document.getElementById('content').innerHTML = theCompiledHtml;
