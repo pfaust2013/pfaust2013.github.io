@@ -1,42 +1,51 @@
 <!DOCTYPE html>
 <html>
-<head>   <meta charset="UTF-8">   <title>Handlebar Table Array Example</title>
+  <head>
+      <meta charset="UTF-8">
+      <title>Title of the document</title>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
+  </head>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
+  <body>
+      <h2>Handlebars templates to populate a table with an array of objects using Ajax</h2>
 
-<!-- the ordered list template  
-<script id="example-template" type="text/x-handlebars-template">
-   <h3>First 5 Presidents</h3>
-     <ol>
-         {{#each presidents}}
-              <li>{{firstName}} {{lastName}}</li>
-         {{/each}}
-    </ol>
-</script>    -->
-   
+      <h3>array of people objects as a table</h3>
+          <div id="peopleTable"></div>
+  </body>
+
+<!-- The script element is used to define the Handlebars template -->
 <script type="text/x-handlebars-template" id="tableTemplate">
-    <table>
-        {{#each rows}}
+   <table cellspacing='12'>
+       <tr><th>Name</th><th>State</th><th>Age</th><th>Flavor</th></tr>
+       {{#each rows}}
             <tr>
-                <td>{{Name}}</td><td>{{State}}</td><td>{{Age}}</td>
+                <td>{{name}}</td><td>{{state}}</td><td>{{age}}</td><td>{{flavor}}</td>
             </tr>
-        {{/each}}
-    </table>
+      {{/each}}
+   </table>
 </script>
-
-</head>
-<body>
-   <h3>Table Array example using Handlebars</h3>
   
-   <div id='content'></div>
-
 <script>
-   // var context = {presidents:[{firstName:'George',lastName:'Washington'},{firstName:'John',lastName:'Adams'},{firstName:'Thomas',lastName:'Jefferson'},{firstName:'James',lastName:'Madison'},{firstName:'James',lastName:'Monroe'}]};
-    var people = [{"Name":"Albert", "State":"Iowa","Age":25},{"Name":"Betty", "State":"Ohio","Age":32},{"Name":"Clark", "State":"Ohio","Age":48}];
-    var theTemplateScript = document.getElementById('tableTemplate').innerHTML;
-    var theTemplate = Handlebars.compile(theTemplateScript);
-    var theCompiledHtml = theTemplate({ rows: people });
-    document.getElementById('content').innerHTML = theCompiledHtml;
+    var request = new XMLHttpRequest();
+    var url = "hb6data.json";
+    request.open('GET', url);     // open the request
+	
+    request.onload = function() {                     // the data is back...
 
+        var data = JSON.parse(request.responseText);    // de-stringify JSON back to regular array of JavaScript objects
+
+        if (request.status == 200) {
+              var templateText = document.getElementById('tableTemplate').innerHTML; // Get template text 
+              var compiledTemplateText = Handlebars.compile(templateText);    // Compile the Handlebars template
+              compiledHtml = compiledTemplateText({ rows: data })             // Evaluate the template
+			  document.getElementById('peopleTable').innerHTML = compiledHtml; 	// put html table into division
+        }
+        else {
+            document.querySelector('#peopleTable').innerHTML = "There was an error, or currency symbol not found";
+        }
+    }
+
+    request.send(null);
+  
 </script>
-</body></html>
+</html>
