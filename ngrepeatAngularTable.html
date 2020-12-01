@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<title>Angular JS Repetition</title></head>
+
+<body ng-app="tableApp">
+
+    <div ng-controller="tableCtrl">
+        <h2>Contact List</h2>
+
+        <table cellspacing="12">
+            <tr><th>Name</th><th>Phone</th></tr>
+            <tr ng-repeat="contact in contacts">
+                <td ng-bind="contact.name"></td>
+                <td ng-bind="contact.phone"></td>
+            </tr>
+        </table>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js">
+    </script>
+
+    <script>
+     var app = angular.module('tableApp', []);
+
+     app.controller('tableCtrl', function($scope) {
+
+         $scope.contacts = [        // an array of object literals, very similar if not identical to JSON
+
+             {name: "han solo", phone: "555-1111"},
+             {name: "jar-jar binks", phone: "555-2222"},
+             {name: "princess leah", phone: "555-3333"},
+             {name: "luke skywalker", phone: "555-4444"}
+        ]
+
+    });    // end controller
+
+    </script>
+</body>
+</html>
