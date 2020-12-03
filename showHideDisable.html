@@ -12,7 +12,7 @@
             <tr>
                 <td><input type="checkbox" ng-model="disabled">Disable Button</td>
                 <td>
-                    <button type='button' ng-disabled="disabled" ng-click="clickCounter = clickCounter + 1">
+                    <button ng-disabled="disabled" ng-click="clickCounter = clickCounter + 1">
                         Increment Count
                     </button> Total: {{ clickCounter || 0 }}
                 </td>
