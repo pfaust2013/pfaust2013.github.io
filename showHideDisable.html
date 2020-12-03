@@ -1,0 +1,36 @@
+﻿<html>
+<head>
+    <title>AngularJS</title>
+</head>
+<body>
+
+    <h2>AngularJS Example: show/hide</h2>
+
+    <div ng-app="">
+
+        <table border="0" cellspacing="12">
+            <tr>
+                <td><input type="checkbox" ng-model="disabled">Disable Button</td>
+                <td>
+                    <button type='button' ng-disabled="disabled" ng-click="clickCounter = clickCounter + 1">
+                        Increment Count
+                    </button> Total: {{ clickCounter || 0 }}
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" ng-model="show_it">Show text if checked.</td>
+                <td><span ng-show="show_it">Roses R Red.</span></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" ng-model="hide_it">Hide text if checked.</td>
+                <td><span ng-hide="hide_it">Violets R Blue.</span></td>
+            </tr>
+        </table>
+
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js">
+    </script>
+
+</body>
+</html>
