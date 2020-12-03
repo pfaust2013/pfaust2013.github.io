@@ -1,1 +1,45 @@
+﻿<!DOCTYPE html>
+<html ng-app="mainApp">
+<head>
+    <title>single page app 1</title>
+    <meta charset="utf-8">
 
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular-route.js"></script>
+
+    <script src="app.js"></script>      <!-- add our own code -->
+
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <!-- begin nav bar -->
+        <div class="container-fluid">
+
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Our Website</a>
+            </div>
+            <div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#home">Home</a></li>
+                    <li><a href="#page2">Page 2</a></li>
+                    <li><a href="#page3">Page 3</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav> <!-- end nav bar  -->
+
+    <div id="main">
+        <div ng-view></div>   <!-- partial pages substituted here -->
+    </div>
+
+    <div class="panel-footer">
+        <p>Footer items here:  &nbsp; &copy; Company | Privacy | Whatever</p>
+    </div>
+
+</body>
+</html>
