@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html ng-app="mainApp">
+<head>
+    <title>Welcome to Metro Cars</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular-route.js"></script>
+
+    <script src="app.js"></script>      <!-- add our own code -->
+
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-inverse">
+            <!-- begin nav bar -->
+            <div class="container-fluid">
+
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#home">Metro Cars</a>
+                </div>
+                <div>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#home">Home</a></li>
+                        <li><a href="#dealers">Dealers</a></li>
+                        <li><a href="#all_cars">All the Cars</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav> <!-- end nav bar  -->
+        <div id="main">
+            <div ng-view></div>   <!-- partial pages substituted here -->
+        </div>
+    </div> <!-- end of div container -->
+
+    <div class="panel-footer">
+        <p>Links:  &nbsp; &copy; Metro Cars, Inc. | Privacy | Contact Us | About</p>
+    </div>
+
+</body>
+</html>
